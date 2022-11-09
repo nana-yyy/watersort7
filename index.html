@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Elm + Websockets</title>
+  <script type="text/javascript" src="water.js"></script>
+</head>
+
+<body>
+  <h1>WaterSortPuzzle</h1>
+    <div id="myapp"></div>
+    <audio id="oto" src="peta.mp3" ></audio>
+</body>
+
+<script type="text/javascript">
+
+// Elmアプリケーションを開始します
+var app = Elm.WaterSort4.init({
+    node: document.getElementById('myapp')
+});
+
+
+
+// `sendMessage`というポートにコマンドが送られてきたとき、
+// 受け取ったメッセージをWebSocketに渡します
+app.ports.oto.subscribe(function(message) {
+    x = document.getElementById("oto");
+    x.play();
+});
+
+
+</script>
+
+</html>
